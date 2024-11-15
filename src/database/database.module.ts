@@ -3,6 +3,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import {User} from '../users/entities/user.entity'
 
 @Module({
   imports: [
@@ -16,8 +17,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: true, // Be cautious about using synchronize in production
+        entities: [User],
+        synchronize: false, // Be cautious about using synchronize in production
       }),
       inject: [ConfigService],
     }),
