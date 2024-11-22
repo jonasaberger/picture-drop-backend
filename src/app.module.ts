@@ -5,9 +5,10 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module'
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
+import { VouchersModule } from './vouchers/vouchers.module';
 
 @Module({
-  imports: [UsersModule, DatabaseModule],
+  imports: [UsersModule, DatabaseModule, VouchersModule],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -19,6 +20,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     DatabaseModule,
     UsersModule,
+    VouchersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
