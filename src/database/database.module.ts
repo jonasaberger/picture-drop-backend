@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import {User} from '../users/entities/user.entity'
 import { Workspaces } from 'src/workspaces/entities/workspaces.entity';
 import {Vouchers } from '../vouchers/entities/voucher.entity'
+import { SubmissionItem } from 'src/submission-items/entities/submission-item.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import {Vouchers } from '../vouchers/entities/voucher.entity'
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [User,Workspaces, Vouchers],
+        entities: [User,Workspaces, Vouchers, SubmissionItem],
 
         synchronize: false, // Be cautious about using synchronize in production
       }),

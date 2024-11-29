@@ -7,9 +7,10 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { VouchersModule } from './vouchers/vouchers.module';
 import { WorkspacesModule } from './workspaces/workspaces.module';
+import { SubmissionItemsModule } from './submission-items/submission-items.module';
 
 @Module({
-  imports: [UsersModule, DatabaseModule, VouchersModule, WorkspacesModule],
+  imports: [UsersModule, DatabaseModule, VouchersModule, WorkspacesModule, SubmissionItemsModule],
   controllers: [AppController],
   providers: [AppService],
 })
