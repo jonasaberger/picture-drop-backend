@@ -1,16 +1,16 @@
 /* eslint-disable */
 import { Injectable } from '@nestjs/common';
-import { Voucher } from './entities/voucher.entity';
+import { Vouchers } from './entities/voucher.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class VouchersService {
   constructor(
-    @InjectRepository(Voucher) private voucherRepository: Repository<Voucher>,
+    @InjectRepository(Vouchers) private voucherRepository: Repository<Vouchers>,
   ) {}
 
-  async findAll() : Promise<Voucher[]> {
+  async findAll() : Promise<Vouchers[]> {
     return await this.voucherRepository.find();
   }
 
