@@ -2,15 +2,21 @@
 import { Injectable } from '@nestjs/common';
 import { CreateWorkspaceDto } from './dto/create-workspace.dto';
 import { UpdateWorkspaceDto } from './dto/update-workspace.dto';
+import { Workspaces } from './entities/workspaces.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class WorkspacesService {
+  constructor(
+    @InjectRepository(Workspaces) private workspaceRepository: Repository<Workspaces>,
+  ) {}
   create(createWorkspaceDto: CreateWorkspaceDto) {
     return 'This action adds a new workspace';
   }
 
-  findAll() {
-    return `This action returns all workspaces`;
+  async findAll() : Promise<Workspaces[]>{
+    return await this.workspaceRepository.find();
   }
 
   findOne(id: number) {
