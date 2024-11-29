@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import {User} from '../users/entities/user.entity'
 import { Workspaces } from 'src/workspaces/entities/workspaces.entity';
+import {Voucher} from '../vouchers/entities/voucher.entity'
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { Workspaces } from 'src/workspaces/entities/workspaces.entity';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [User,Workspaces],
+        entities: [User,Workspaces, Voucher],
+
         synchronize: false, // Be cautious about using synchronize in production
       }),
       inject: [ConfigService],
