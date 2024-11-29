@@ -1,24 +1,21 @@
 /* eslint-disable */
 import { Injectable } from '@nestjs/common';
-import { CreateVoucherDto } from './dto/create-voucher.dto';
-import { UpdateVoucherDto } from './dto/update-voucher.dto';
+import { Voucher } from './entities/voucher.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class VouchersService {
-  create(createVoucherDto: CreateVoucherDto) {
-    return 'This action adds a new voucher';
-  }
+  constructor(
+    @InjectRepository(Voucher) private voucherRepository: Repository<Voucher>,
+  ) {}
 
-  findAll() {
-    return `This action returns all vouchers`;
+  async findAll() : Promise<Voucher[]> {
+    return await this.voucherRepository.find();
   }
 
   findOne(id: number) {
     return `This action returns a #${id} voucher`;
-  }
-
-  update(id: number, updateVoucherDto: UpdateVoucherDto) {
-    return `This action updates a #${id} voucher`;
   }
 
   remove(id: number) {
