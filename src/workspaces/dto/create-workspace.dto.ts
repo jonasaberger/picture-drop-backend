@@ -4,7 +4,7 @@ export class CreateWorkspaceDto {
     Name: string;
     NameEn : string;
     Description : string;
-    DescriptionEN : string;
+    DescriptionEn : string;
     ContactUrl : string;
     ContactMail : string;
     ContactPhone : string;

@@ -1,9 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-/* eslint-disable prettier/prettier */
+@Entity("Workspaces")
 export class Workspaces {
-
-
   @PrimaryGeneratedColumn() // Auto-incremented primary key
   Id : number;
   @Column()
@@ -13,7 +12,7 @@ export class Workspaces {
   @Column()
   Description : string;
   @Column()
-  DescriptionEN : string;
+  DescriptionEn : string;
   @Column()
   ContactUrl : string;
   @Column()
@@ -23,7 +22,7 @@ export class Workspaces {
   @Column()
   FirstName : string;
   @Column()
-  Lastname : string;
+  LastName : string;
   @Column()
   DateOfBirth : Date;
   @Column()
@@ -49,13 +48,13 @@ export class Workspaces {
   @Column()
   StripeSessionId : number;
   @Column()
-  SubscribtionStatus : boolean;
+  SubscriptionStatus : boolean;
   @Column()
-  SubscribtionEndDate : Date;
+  SubscriptionEndDate : Date;
   @Column()
-  TrailStartOn : Date;
+  TrialStartOn : Date;
   @Column()
-  TrailEndsOn : Date;
+  TrialEndsOn : Date;
   @Column()
   OwnerId : number;
   @Column()
