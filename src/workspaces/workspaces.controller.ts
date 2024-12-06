@@ -11,6 +11,11 @@ export class WorkspacesController {
     return this.workspacesService.findAll();
   }
 
+  @Get('/active')
+  getActiveWorkspaces(){
+    return this.workspacesService.GetActiveWorkspaces();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.workspacesService.findOne(+id);

@@ -48,7 +48,7 @@ export class Workspaces {
   @Column()
   StripeSessionId : number;
   @Column()
-  SubscriptionStatus : boolean;
+  SubscriptionStatus : string;
   @Column()
   SubscriptionEndDate : Date;
   @Column()
