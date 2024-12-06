@@ -40,16 +40,40 @@ export class WorkspacesService {
         })
         .getMany();
     } catch (error) {
-      console.error('Fehler bei der Abfrage von aktiven Workspaces:', error);
-      throw new Error('Fehler bei der Abfrage von aktiven Workspaces');
+      console.error('Fehler bei der Abfrage von inaktiven Workspaces:', error);
+      throw new Error('Fehler bei der Abfrage von inaktiven Workspaces');
     }
   }
 
+  async GetWorkspacesWithCompanyName(name: string): Promise<Workspaces[]> {
+    try {
+      return await this.workspaceRepository
+        .createQueryBuilder('workspace')
+        .where('workspace.CompanyName = :status1', {
+          status1: name,
+        })
+        .getMany();
+    } catch (error) {
+      console.error('Fehler bei der Abfrage von Workspaces anhand ihrer Company:', error);
+      throw new Error('Fehler bei der Abfrage von Workspaces anhand ihrer Company');
+    }
+  }
+  
   
   
 
-  findOne(id: number) {
-    return `This action returns a #${id} workspace`;
+  async findOne(id: string) : Promise<Workspaces[]>{
+    try {
+      return await this.workspaceRepository
+        .createQueryBuilder('workspace')
+        .where('workspace.Id = :status1', {
+          status1: id,
+        })
+        .getMany();
+    } catch (error) {
+      console.error('Fehler bei der Abfrage von Workspaces anhand der Id:', error);
+      throw new Error('Fehler bei der Abfrage von Workspaces anhand der Id');
+    }
   }
 
   remove(id: number) {

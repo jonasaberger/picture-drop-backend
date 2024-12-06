@@ -20,9 +20,14 @@ export class WorkspacesController {
     return this.workspacesService.GetInactiveWorkspaces();
   }
 
+  @Get('workspacesByCompany/:name')
+  getWorkspacesByCompanyName(@Param('name') name: string){
+    return this.workspacesService.GetWorkspacesWithCompanyName(name);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.workspacesService.findOne(+id);
+    return this.workspacesService.findOne(id);
   }
 
   @Delete(':id')
