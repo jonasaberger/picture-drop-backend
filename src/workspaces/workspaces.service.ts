@@ -29,6 +29,22 @@ export class WorkspacesService {
       throw new Error('Fehler bei der Abfrage von aktiven Workspaces');
     }
   }
+
+  async GetInactiveWorkspaces(): Promise<Workspaces[]> {
+    try {
+      return await this.workspaceRepository
+        .createQueryBuilder('workspace')
+        .where('workspace.SubscriptionStatus = :status1 OR workspace.SubscriptionStatus = :status2', {
+          status1: 'Canceled',
+          status2: 'Unpaid',
+        })
+        .getMany();
+    } catch (error) {
+      console.error('Fehler bei der Abfrage von aktiven Workspaces:', error);
+      throw new Error('Fehler bei der Abfrage von aktiven Workspaces');
+    }
+  }
+
   
   
 
