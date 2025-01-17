@@ -7,35 +7,8 @@ export class Vouchers {
     Id : number;
 
     @Column()
-    VoucherCode : string;
+    WorkspaceId : string; // Den zugehörigen Workspace
 
     @Column()
-    ValidatedOn : Date;
-
-    @Column()
-    WorkspaceId : string;
-
-    @Column()
-    WinningChallengeId : string;
-
-    @Column()
-    CreatedById : string;
-
-    @Column()
-    CreatedOn : Date;
-
-    @Column()
-    LastModifiedById : string;
-
-    @Column()
-    LastModifiedOn : Date;
-
-    @Column()
-    SubmissionId : string;
-
-    @Column()
-    VoucherPrize : string;
-
-    @Column()
-    VoucherPrizeEn : string;
+    ValidatedOn : Date; // Datum der Validierung -> ob der Voucher eingelöst wurde
 }
