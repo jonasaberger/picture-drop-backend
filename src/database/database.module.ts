@@ -7,6 +7,7 @@ import {User} from '../users/entities/user.entity'
 import { Workspaces } from 'src/workspaces/entities/workspaces.entity';
 import {Vouchers } from '../vouchers/entities/voucher.entity'
 import { SubmissionItem } from 'src/submission-items/entities/submission-item.entity';
+import { Submission } from 'src/submissions/entities/submission.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { SubmissionItem } from 'src/submission-items/entities/submission-item.en
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [User,Workspaces, Vouchers, SubmissionItem],
+        entities: [User,Workspaces, Vouchers, SubmissionItem, Submission],
 
         synchronize: false, // Be cautious about using synchronize in production
       }),

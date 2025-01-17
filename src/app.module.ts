@@ -24,7 +24,9 @@ import { SubmissionsModule } from './submissions/submissions.module';
     DatabaseModule,
     UsersModule,
     VouchersModule,
-    WorkspacesModule
+    WorkspacesModule,
+    SubmissionItemsModule,
+    SubmissionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
