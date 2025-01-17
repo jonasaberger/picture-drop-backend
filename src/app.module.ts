@@ -8,9 +8,10 @@ import { ConfigModule } from '@nestjs/config';
 import { VouchersModule } from './vouchers/vouchers.module';
 import { WorkspacesModule } from './workspaces/workspaces.module';
 import { SubmissionItemsModule } from './submission-items/submission-items.module';
+import { SubmissionsModule } from './submissions/submissions.module';
 
 @Module({
-  imports: [UsersModule, DatabaseModule, VouchersModule, WorkspacesModule, SubmissionItemsModule],
+  imports: [UsersModule, DatabaseModule, VouchersModule, WorkspacesModule, SubmissionItemsModule, SubmissionsModule],
   controllers: [AppController],
   providers: [AppService],
 })

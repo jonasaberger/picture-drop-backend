@@ -1,47 +1,17 @@
-/* eslint-disable*/
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+/* eslint-disable */
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
 
 @Entity("SubmissionItems")
 export class SubmissionItem {
     @PrimaryGeneratedColumn()
-    Id : number
+    Id: number;
 
-    @Column()
-    SubmissionId : string
+    @Column() // ID der entsprechenden Submission
+    SubmissionId: number;
 
-    @Column()
-    FileId : string
+    @Column() // Art des eingereichten Items (z.B. Text, Bild, Video, Audio)
+    ContentType: string;
 
-    @Column()
-    ThumbnailId : string
-
-    @Column()
-    Width : number
-
-    @Column()
-    Height : number
-
-    @Column()
-    ContentType : string
-
-    @Column()
-    ContentLength : number
-
-    @Column()
-    Rating : number
-
-    @Column()
-    Orientation : number
-
-    @Column()
-    CreatedById : number
-
-    @Column()
-    CreatedOn : Date
-
-    @Column()
-    LastModifiedById : number
-
-    @Column()
-    LastModifiedOn : Date
+    @Column() // Zeitstempel für die zeitliche Eingrenzung bei der Statistik
+    CreatedOn: Date;
 }
