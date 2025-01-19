@@ -14,4 +14,7 @@ export class SubmissionItem {
 
     @Column() // Zeitstempel für die zeitliche Eingrenzung bei der Statistik
     CreatedOn: Date;
+
+    @Column()
+    WorkspaceId: number; // TODO: WorkspaceId hinzufügen mittels JOIN-Column über die SubmissionId
 }
