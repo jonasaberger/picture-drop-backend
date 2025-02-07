@@ -14,8 +14,8 @@ export class WorkspacesService {
     return await this.workspaceRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} workspace`;
+  async findOne(id: string) {
+    return await this.workspaceRepository.find();
   }
 
   remove(id: number) {

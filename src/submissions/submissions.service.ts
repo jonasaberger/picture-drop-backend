@@ -16,4 +16,8 @@ export class SubmissionsService {
   findOne(id: number) {
     return this.submissionRepository.findOne({where: {Id: id}});
   }
+
+  remove(id: number) {
+    return this.submissionRepository.delete(id);
+  }
 }

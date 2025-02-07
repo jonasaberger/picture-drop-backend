@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { Injectable } from '@nestjs/common';
-import { Vouchers } from './entities/voucher.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Vouchers } from './entities/voucher.entity';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Injectable()
 export class VouchersService {
@@ -14,11 +15,19 @@ export class VouchersService {
     return await this.voucherRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} voucher`;
+  async findOne(id: string): Promise<Vouchers> {
+    const voucher = await this.voucherRepository.findOne({ where: { id } });
+    if (!voucher) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return voucher;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} voucher`;
+  async remove(id: string) {
+    const voucher = await this.voucherRepository.findOne({ where: { id } });
+    if (!voucher) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return await this.voucherRepository.delete(id);
   }
 }
