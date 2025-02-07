@@ -12,7 +12,7 @@ export enum SubscriptionStatusEnum {
 export class Workspaces {
 
   @PrimaryGeneratedColumn() // Auto-incremented primary key
-  Id : number;
+  Id : string;
 
   @Column()
   Name: string; // Name des entsprechenden Workspace

@@ -13,7 +13,7 @@ export class SubmissionsService {
     return this.submissionRepository.find();
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.submissionRepository.findOne({where: {Id: id}});
   }
 

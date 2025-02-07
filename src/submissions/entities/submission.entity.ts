@@ -4,7 +4,7 @@ import { Entity, PrimaryColumn, Column } from "typeorm";
 export class Submission {
 
     @PrimaryColumn()
-    Id : number;
+    Id : string;
 
     @Column()
     WorkspaceId : number;

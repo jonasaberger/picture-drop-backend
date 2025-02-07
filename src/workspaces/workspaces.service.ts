@@ -14,11 +14,11 @@ export class WorkspacesService {
     return await this.workspaceRepository.find();
   }
 
-  async findOne(id: string) {
-    return await this.workspaceRepository.find();
+  async findOne(Id: string) {
+    return await this.workspaceRepository.findOne({ where: { Id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} workspace`;
+  async remove(Id: number) {
+    return await this.workspaceRepository.delete(Id);
   }
 }
