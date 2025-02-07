@@ -15,19 +15,19 @@ export class VouchersService {
     return await this.voucherRepository.find();
   }
 
-  async findOne(id: string): Promise<Vouchers> {
-    const voucher = await this.voucherRepository.findOne({ where: { id } });
+  async findOne(Id: string): Promise<Vouchers> {
+    const voucher = await this.voucherRepository.findOne({ where: { Id } });
     if (!voucher) {
       throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
     }
     return voucher;
   }
 
-  async remove(id: string) {
-    const voucher = await this.voucherRepository.findOne({ where: { id } });
+  async remove(Id: string) {
+    const voucher = await this.voucherRepository.findOne({ where: { Id } });
     if (!voucher) {
       throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
     }
-    return await this.voucherRepository.delete(id);
+    return await this.voucherRepository.delete(Id);
   }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SubmissionItem } from './entities/submission-item.entity';
 import { Repository } from 'typeorm';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Injectable()
 export class SubmissionItemsService {
@@ -14,11 +15,19 @@ export class SubmissionItemsService {
     return this.voucherRepository.find()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} submissionItem`;
+  findOne(Id: string) {
+    const submissionItem = this.voucherRepository.findOne({ where: { Id } });
+    if (!submissionItem) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return submissionItem;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} submissionItem`;
+  remove(Id: string) {
+    const submissionItem = this.voucherRepository.findOne({ where: { Id } });
+    if (!submissionItem) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return this.voucherRepository.delete(Id);
   }
 }

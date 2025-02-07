@@ -19,13 +19,13 @@ export class SubmissionItemsController {
   @ApiOperation({ summary: 'Get a submission item by ID' })
   @ApiResponse({status: 200, description: 'A submission item', type: Object})
   findOne(@Param('id') id: string) {
-    return this.submissionItemsService.findOne(+id);
+    return this.submissionItemsService.findOne(id);
   }
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a submission item by ID' })
   @ApiResponse({status: 200, description: 'The submission item was deleted', type: Object})
   remove(@Param('id') id: string) {
-    return this.submissionItemsService.remove(+id);
+    return this.submissionItemsService.remove(id);
   }
 }
